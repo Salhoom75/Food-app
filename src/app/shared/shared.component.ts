@@ -6,8 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [],
-  imports: [ CommonModule,HttpClientModule ],
-  exports: [],
+  imports: [ CommonModule,HttpClientModule, ReactiveFormsModule],
+  exports: [ReactiveFormsModule],
   providers: [],
 })
 export class FeatureModule {}
