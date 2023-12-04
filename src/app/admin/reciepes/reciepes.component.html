@@ -1,3 +1,131 @@
-<p>
-  reciepes works!
-</p>
+<section class="page-header">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <div class="col-9 px-5">
+        <h3>Recipes <span>Item</span></h3>
+        <p>
+          You can now add your items that any user can order it from the
+          Application and you can edit
+        </p>
+      </div>
+      <div class="col-3">
+        <div class="text-end">
+          <img
+            src="../../../assets/images/Group 48102127.png"
+            class="w-75"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container py-4">
+    <div class="row">
+      <div class="col-md-6">
+        <input
+          [(ngModel)]="searchValue"
+          (keyup)="getTableData()"
+          type="text"
+          class="form-control"
+          placeholder="Search here"
+          name=""
+          id=""
+        />
+      </div>
+      <div class="col-md-3">
+        <select
+          [(ngModel)]="tagId"
+          (change)="getTableData()"
+          class="form-select"
+          aria-label="Default select example"
+        >
+          <option selected>All</option>
+
+          <option *ngFor="let item of tags" [value]="item.id">
+            {{ item.name }}
+          </option>
+        </select>
+        <!-- <h2>{{ tagId }}</h2> -->
+      </div>
+      <div class="col-md-3">
+        <button class="primary" [routerLink]="['dashboard/admin/recipes/add']">
+          Add new Recipe
+        </button>
+      </div>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Item Name</th>
+          <th>Image</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>Tag</th>
+          <th>Category</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="tableData.length > 0">
+        <div *ngIf="tableData?.length == 0"></div>
+        <tr *ngFor="let item of tableData">
+          <td>{{ item.name }}</td>
+          <td class="w-25">
+            <img
+              [src]="'https://upskilling-egypt.com/' + item.imagePath"
+              class="w-50"
+              alt=""
+            />
+          </td>
+          <td>{{ item.price }}</td>
+          <td>{{ item.description }}</td>
+          <td>{{ item.tag.name }}</td>
+          <td>
+            <ng-container *ngIf="item.category.length > 0">
+              <span *ngFor="let itemCategory of item.category">
+                {{ itemCategory.name }}</span
+              >
+            </ng-container>
+            <span *ngIf="item.category.length == 0"> No Category </span>
+          </td>
+          <td class="taxt-center">
+            <div class="dropdown">
+              <a
+                class="dropdown-toggle text-muted"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-ellipsis fa-2x"></i>
+              </a>
+
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><span><i class="fa-solid fa-eye"></i></span> view
+                  </a>
+                </li>
+                <li>
+                  <a
+                   [routerLink]="['/dashboard/admin/recipes/edit', item.id]"
+                    class="dropdown-item"
+                    href="#"
+                    ><span><i class="fa-regular fa-pen-to-square"></i></span>
+                    Edit
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><span><i class="fa-solid fa-trash"></i></span> Delete
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

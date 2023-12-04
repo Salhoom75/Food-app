@@ -1,0 +1,33 @@
+<div class="card-auth p-5">
+  <h4 class="d-flex align-items-center justify-content-between">
+    <span>Category Name</span>
+    <span
+      ><a
+        (click)="onClose()"
+        routerLink="/dashboard/admin/categories"
+        class="text-secondary text-decoration-none"
+        ><i class="fa-regular fa-circle-xmark text-danger"></i> </a
+    ></span>
+  </h4>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1"
+      ><i class="fa-solid fa-plus"></i
+    ></span>
+    <input
+      [(ngModel)]="categoryName"
+      type="text"
+      class="form-control"
+      placeholder="Category Name"
+      aria-label="Username"
+      aria-describedby="basic-addon1"
+    />
+  </div>
+  <div class="text-end"></div>
+  <button
+    [mat-dialog-close]="categoryName"
+    cdkFocusInitial
+    class="primary w-25"
+  >
+    Send
+  </button>
+</div>

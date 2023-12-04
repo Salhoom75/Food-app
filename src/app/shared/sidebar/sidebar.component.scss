@@ -1,0 +1,21 @@
+.sideBar{
+    border-top-right-radius: 58px;
+}
+
+.item{
+    display: flex;
+    align-items: center;
+    color: white;
+   padding: 5px 15px;
+   margin: 1rem 0px;
+   
+}
+
+.bgActive{
+    background-color: rgba(0, 146, 71, 0.10);;
+}
+
+.row>div{
+    transition: all 1s;
+     
+}

@@ -1,0 +1,38 @@
+.navbar{
+    background-color: #F8F9FB;
+    padding: 1rem 0px;
+    .user-avatar{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    img{
+        background-color: red;
+        width: 100%;
+        border-radius: 50%;
+    }
+    span{
+        color: #1F384C;
+    }
+}
+
+.sideBar{
+    border-top-right-radius: 58px;
+}
+
+.item{
+    display: flex;
+    align-items: center;
+    color: white;
+   padding: 5px 15px;
+   margin: 1rem 0px;
+   
+}
+
+.bgActive{
+    background-color: rgba(0, 146, 71, 0.10);;
+}
+.row>div{
+    transition: all 1s;
+     
+}

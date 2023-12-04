@@ -1,4 +1,4 @@
-<section id="reset">
+<section class="reset">
   <div class="container">
     <div class="row">
       <div class="col-md-6 mx-auto">
@@ -14,8 +14,15 @@
     <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-mobile-screen"></i></span>
     <input formControlName="email" type="text" class="form-control" placeholder="E-mail" aria-label="Username" aria-describedby="basic-addon1">
   </div>
-  <div *ngIf="resetForm.get('email')?.errors && resetForm.get('email')?.touched" >
-    <p *ngIf="resetForm.get('email')?.errors?.['requiered']" class="mb-0">  OTP Is Requiered  </p>
+  <div class="alert alert-danger " *ngIf="resetForm.get('email')?.errors && resetForm.get('email')?.touched" >
+    <p *ngIf="resetForm.get('email')?.errors?.['requiered']" class="mb-0">  Email Is Requiered  </p>
+   </div>
+   <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1"><i class="fa-regular fa-envelope"></i></span>
+    <input formControlName="seed" type="text"  class="form-control" placeholder="OTP" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+  <div class="alert alert-danger " *ngIf="resetForm.get('seed')?.errors && resetForm.get('seed')?.touched" >
+    <p *ngIf="resetForm.get('seed')?.errors?.['requiered']" class="mb-0">  OTP Is Requiered  </p>
    </div>
   <div class="input-group mb-3">
     <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
@@ -23,15 +30,9 @@
   </div>
   <div class="input-group mb-3">
     <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
-    <input formControlName="confirmPassword" type="text"  class="form-control" placeholder="New Password" aria-label="Username" aria-describedby="basic-addon1">
+    <input formControlName="confirmPassword" type="password"  class="form-control" placeholder="New Password" aria-label="Username" aria-describedby="basic-addon1">
   </div>
-  <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
-    <input formControlName="seed" type="text"  class="form-control" placeholder="OTP" aria-label="Username" aria-describedby="basic-addon1">
-  </div>
-  <div class="alert alert-danger " *ngIf="resetForm.get('seed')?.errors && resetForm.get('seed')?.touched" >
-    <p *ngIf="resetForm.get('seed')?.errors?.['requiered']" class="mb-0">  OTP Is Requiered  </p>
-   </div>
+
 
 
 <button class="primary w-100">Reset Password</button>
