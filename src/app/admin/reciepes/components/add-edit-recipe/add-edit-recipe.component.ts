@@ -81,16 +81,30 @@ export class AddEditRecipeComponent implements OnInit {
     myData.append('categoriesIds', data.value.categoriesIds);
     myData.append('recipeImage', this.imgSrc, this.imgSrc.name);
 
-    this._RecipeService.addRecipes(myData).subscribe({
-      next: (res) => {
-        console.log(res);
-      },
-      error: (err) => {},
-      complete: () => {
-        this.router.navigate(['/dashboard/admin/recipes']);
-      },
-    });
-  }
+
+    if(this.recipeId){
+      this._RecipeService.editRecipes(this.recipeId,myData).subscribe({
+        next: (res) => {
+          console.log(res);
+        },
+        error: (err) => {},
+        complete: () => {
+          this.router.navigate(['/dashboard/admin/recipes']);
+        },
+      });
+    }else{
+      this._RecipeService.addRecipes(myData).subscribe({
+        next: (res) => {
+          console.log(res);
+        },
+        error: (err) => {},
+        complete: () => {
+          this.router.navigate(['/dashboard/admin/recipes']);
+        },
+      });
+    }
+    }
+   
 
   getAllTags() {
     this._HelperService.getTags().subscribe({
