@@ -50,11 +50,6 @@
         </select>
         <!-- <h2>{{ tagId }}</h2> -->
       </div>
-      <div class="col-md-3">
-        <button class="primary" [routerLink]="['/dashboard/admin/recipes/add']">
-          Add new Recipe
-        </button>
-      </div>
     </div>
     <table class="table table-striped">
       <thead>
@@ -103,22 +98,17 @@
 
               <ul class="dropdown-menu">
                 <li>
-                  <a class="dropdown-item pointer"
+                  <a class="dropdown-item pointer" (click)="openDialog(item)" href="#"
                     ><span><i class="fa-solid fa-eye"></i></span> view
                   </a>
                 </li>
                 <li>
                   <a
-                   [routerLink]="['/dashboard/admin/recipes/edit', item.id]"
+                    [routerLink]="['/dashboard/user/recipes/edit', item.id]"
                     class="dropdown-item pointer"
-                   
-                    ><span><i class="fa-regular fa-pen-to-square"></i></span>
-                    Edit
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item pointer" 
-                    ><span><i class="fa-solid fa-trash"></i></span> Delete
+                    href="#"
+                    ><span><i class="fa-brands fa-gratipay"></i></span>
+                    Favorite
                   </a>
                 </li>
               </ul>

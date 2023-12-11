@@ -1,6 +1,6 @@
 <section>
   <div class="container">
-    <form (ngSubmit)="onSubmit(recipeForm)" formGroup]="recipeForm">
+    <form (ngSubmit)="onSubmit(recipeForm)" [formGroup]="recipeForm">
       <div class="row card-auth">
         <div class="col-md-10 mx-auto">
           <div class="input-group mb-3">
@@ -8,7 +8,7 @@
               ><i class="fa-solid fa-mobile-screen"></i
             ></span>
             <input
-              formControlName="email"
+              formControlName="name"
               type="text"
               class="form-control"
               placeholder="Recipe Name"
@@ -53,7 +53,7 @@
               ><i class="fa-solid fa-mobile-screen"></i
             ></span>
             <select
-              formControlName="categoriesId"
+              formControlName="categoriesIds"
               class="form-select"
               aria-label="Default select example"
             >

@@ -2,11 +2,20 @@
   <div class="container">
     <div class="row w-100">
       <div class="col-3 ms-auto">
-        <div class="d-flex align-items-center">
-          <div class="user-avatar">
-            <img src="../../../assets/images/download.png" alt="" />
+        <div class="d-flex align-items-center" *ngIf="currentUser">
+          <div class="user-avatar mx-2 ">
+            <img
+              *ngIf="currentUser.imagePath"
+              [src]="'https://upskilling-egypt.com/' + currentUser.imagePath"
+              alt=""
+            />
+            <img
+              *ngIf="!currentUser.imagePath"
+              src="../../../assets/images/Sample_User_Icon.png"
+              alt=""
+            />
           </div>
-          <span class="d-block mx-2"> {{ userName }} </span>
+          <span class="d-block mx-2"> {{ currentUser.userName }} </span>
         </div>
       </div>
     </div>

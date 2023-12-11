@@ -62,7 +62,7 @@ export class AddEditRecipeComponent implements OnInit {
           'https://upskilling-egypt.com/' + this.recipeData.imagaPath),
           this.recipeForm.patchValue({
             name: this.recipeData?.name,
-            price: this.recipeData?.name,
+            price: this.recipeData?.price,
             description: this.recipeData?.description,
             tagId: this.recipeData?.tag.id,
             categoriesIds: this.recipeData?.category[0].id,

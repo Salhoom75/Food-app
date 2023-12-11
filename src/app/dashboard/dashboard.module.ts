@@ -1,9 +1,11 @@
-import { NgModule } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from '../shared/home/home.component';
+import { Observable } from 'rxjs';
+
 
 const routes: Routes = [
   {
@@ -14,7 +16,7 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       {
         path: 'admin',
-        // canActivate: [],
+        canActivate: [],
         loadChildren: () =>
           import('../admin/admin.module').then((m) => m.AdminModule),
       },

@@ -6,8 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-menu: any;
+  menu: any;
   constructor() {}
   isOpened: boolean = true;
   ngOnInit() {}
+
+  changeSidebar(salma:any) {
+    this.isOpened = salma;
+  }
 }

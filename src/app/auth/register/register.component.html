@@ -1,0 +1,179 @@
+<section class="register">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 mx-auto">
+        <div class="card-auth">
+          <div class="text-center">
+            <img src="../../../assets/images/4 4.svg" class="w-25" alt="" />
+          </div>
+          <h2 class="h4">Register</h2>
+          <p>Welcome Back! Please enter your details</p>
+
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm)">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    ><i class="fa-regular fa-circle-user"></i
+                  ></span>
+                  <input
+                    formControlName="userName"
+                    type="text"
+                    class="form-control"
+                    placeholder="User Name"
+                    aria-label="UserName"
+                    aria-describedby="basic-addon1"
+                  />
+                </div>
+                <div
+                  *ngIf="registerForm.get('userName')?.getError('requiered')"
+                ></div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    ><i class="fa-regular fa-envelope"></i
+                  ></span>
+                  <input
+                    formControlName="email"
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter your E-mail"
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
+                  />
+                </div>
+                <div
+                  *ngIf="registerForm.get('email')?.getError('requiered')"
+                ></div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    ><i class="fa-solid fa-earth-americas"></i
+                  ></span>
+                  <input
+                    formControlName="country"
+                    type="text"
+                    class="form-control"
+                    placeholder="Country"
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
+                  />
+                </div>
+                <div
+                  *ngIf="registerForm.get('country')?.getError('requiered')"
+                ></div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    ><i class="fa-solid fa-mobile-screen"></i
+                  ></span>
+                  <input
+                    formControlName="phoneNumber"
+                    type="text"
+                    class="form-control"
+                    placeholder="phone Number"
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
+                  />
+                </div>
+                <div
+                  *ngIf="registerForm.get('phoneNumber')?.getError('requiered')"
+                ></div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    ><i class="fa-solid fa-unlock"></i
+                  ></span>
+                  <input
+                    formControlName="password"
+                    type="password"
+                    class="form-control"
+                    placeholder="Password"
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
+                  />
+                </div>
+                <div
+                  *ngIf="registerForm.get('pasword')?.getError('requiered')"
+                ></div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"
+                    ><i class="fa-solid fa-unlock-keyhole"></i
+                  ></span>
+                  <input
+                    formControlName="confirmPassword"
+                    type="password"
+                    class="form-control"
+                    placeholder="Confirm-Password"
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
+                  />
+                </div>
+                <div
+                  *ngIf="
+                    registerForm.get('confirmPassword')?.getError('requiered')
+                  "
+                ></div>
+              </div>
+
+              <div class="col-md-12 my-3">
+                <ngx-dropzone (change)="onSelect($event)">
+                  <ngx-dropzone-label *ngIf="!imgSrc">
+                    <i class="fa-solid fa-cloud-arrow-up d-block"></i>
+                    Drag & Drop or
+                    <span class="text-main">Choose an Item Image</span> to
+                    Upload</ngx-dropzone-label
+                  >
+
+                  <ngx-dropzone-label *ngIf="imgSrc">
+                    <img [src]="imgSrc" class="w-25" alt="" />
+                  </ngx-dropzone-label>
+
+                  <ngx-dropzone-image-preview
+                    ngProjectAs="ngx-dropzone-preview"
+                    [removable]="true"
+                    (removed)="onRemove(f)"
+                    *ngFor="let f of files"
+                    [file]="f"
+                  >
+                    <ngx-dropzone-label
+                      >{{ f.name }} ({{ f.type }})</ngx-dropzone-label
+                    >
+                  </ngx-dropzone-image-preview>
+                </ngx-dropzone>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="d-flex justify-content-between">
+                <a
+                  routerLink="/auth/login"
+                  class="text-decoration-none text-main"
+                  >Login Now?</a
+                >
+                <a
+                  (click)="openDialog()"
+                  class="text-decoration-none text-main pointer"
+                  >Have a Code?</a
+                >
+              </div>
+            </div>
+            <div class="text-center">
+              <button class="primary w-50">Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

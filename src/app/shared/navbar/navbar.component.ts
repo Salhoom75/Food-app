@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-  userName = localStorage.getItem('userName');
+  currentUser: any;
+  userName = localStorage.getItem('userName')
+    ? localStorage.getItem('userName')
+    : 'Guest';
+
+  constructor(private _HelperService: HelperService) {
+    this._HelperService.getCurrentUser().subscribe({
+      next: (res) => {
+        console.log(res);
+        this.currentUser = res;
+      },
+    });
+  }
 }

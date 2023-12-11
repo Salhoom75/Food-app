@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { AuthService } from 'src/app/auth.service';
 
 interface Imenu {
@@ -14,7 +14,9 @@ interface Imenu {
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
-isOpened: boolean=false ;
+  @Output() toggleChange = new EventEmitter<boolean>();
+
+  isOpened: boolean = false;
   constructor(private _AuthService: AuthService) {}
   isAdmin(): boolean {
     return this._AuthService.role == 'SuperAdmin' ? true : false;
@@ -50,16 +52,21 @@ isOpened: boolean=false ;
       isActive: this.isAdmin(),
     },
     {
-      title: 'user recipes',
+      title: 'recipes',
       icon: 'fa-solid fa-calendar-days',
-      link: '/dashboard/admin/categories',
+      link: '/dashboard/user/recipes',
       isActive: this.isUser(),
     },
     {
       title: 'favorites',
-      icon: 'fa-solid fa-calendar-days',
-      link: '/dashboard/admin/categories',
+      icon: 'fa-brands fa-gratipay',
+      link: '/dashboard/user/favorites',
       isActive: this.isUser(),
     },
   ];
+
+  changeSidebar() {
+    this.isOpened = !this.isOpened;
+    this.toggleChange.emit(this.isOpened);
+  }
 }
