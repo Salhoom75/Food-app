@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
 
 interface Imenu {
@@ -17,7 +18,7 @@ export class SidebarComponent {
   @Output() toggleChange = new EventEmitter<boolean>();
 
   isOpened: boolean = false;
-  constructor(private _AuthService: AuthService) {}
+  constructor(private _AuthService: AuthService, private _Router: Router) {}
   isAdmin(): boolean {
     return this._AuthService.role == 'SuperAdmin' ? true : false;
   }
@@ -69,4 +70,17 @@ export class SidebarComponent {
     this.isOpened = !this.isOpened;
     this.toggleChange.emit(this.isOpened);
   }
+
+  logout() {
+    localStorage.removeItem('userName');
+    localStorage.removeItem('userToken');
+    localStorage.removeItem('role');
+    this._Router.navigate(['/auth/login']);
+  }
+  btnClick(){
+    this._Router.navigateByUrl('/auth/changePassword');
+  }
+
+
+
 }

@@ -19,7 +19,7 @@ export class ReciepesComponent implements OnInit {
   tableData: IRecipe[] = [];
   recipeData: any;
   tags: Itag[] = [];
-  tagId:any;
+  tagId:number=0;
   constructor(
     private dialog: MatDialog,
     private _ToastrService: ToastrService,

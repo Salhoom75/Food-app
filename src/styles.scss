@@ -110,8 +110,17 @@ button {
   background-size: cover;
   background-position: center center;
   border-radius: 20px !important;
+  background-color: #009247;
 }
 
-.pointer{
+.pointer {
   cursor: pointer;
+}
+
+thead tr th {
+  background-color: #ebedf0;
+  padding: 20px 5px;
+}
+thead{
+    margin: 10px 0px;
 }

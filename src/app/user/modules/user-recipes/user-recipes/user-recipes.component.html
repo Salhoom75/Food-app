@@ -50,6 +50,7 @@
         </select>
         <!-- <h2>{{ tagId }}</h2> -->
       </div>
+      
     </div>
     <table class="table table-striped">
       <thead>
@@ -98,15 +99,15 @@
 
               <ul class="dropdown-menu">
                 <li>
-                  <a class="dropdown-item pointer" (click)="openDialog(item)" href="#"
+                  <a class="dropdown-item pointer" (click)="openDialog(item)" 
                     ><span><i class="fa-solid fa-eye"></i></span> view
                   </a>
                 </li>
                 <li>
                   <a
+                  (click)="addToFav(item.id)"
                     [routerLink]="['/dashboard/user/recipes/edit', item.id]"
                     class="dropdown-item pointer"
-                    href="#"
                     ><span><i class="fa-brands fa-gratipay"></i></span>
                     Favorite
                   </a>

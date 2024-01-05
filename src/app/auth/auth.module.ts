@@ -8,12 +8,14 @@ import { ResetComponent } from './reset-pass/reset.component';
 import { RequestResetPasswordComponent } from './request-reset-password/request-reset-password.component';
 import { RegisterComponent } from './register/register.component';
 import { VerifyComponent } from './verify/verify.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'login' , pathMatch:'full'},
   {path:'login', component:LoginComponent},
   {path:'resetPassword',component:ResetComponent},
   {path:'register',component:RegisterComponent},
+  {path:'change-password',component:ChangePasswordComponent},
 
 
 

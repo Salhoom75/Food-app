@@ -25,6 +25,6 @@ export class RecipeService {
 
 
   deleteRecipes(id: number): Observable<any> {
-    return this._HttpClient.delete(`Recipe/${id}`);
+    return this._HttpClient.delete(`userRecipe/${id}`);
   }
 }

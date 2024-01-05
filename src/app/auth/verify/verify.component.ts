@@ -37,7 +37,6 @@ export class VerifyComponent implements OnInit {
 
   onSubmit(data: FormGroup) {
     console.log(data.value);
-    debugger;
     this._AuthService.onVerifyAccount(data.value).subscribe({
       next: (res) => {
         console.log(res);
