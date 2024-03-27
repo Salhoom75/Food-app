@@ -24,14 +24,15 @@
 
         <div class="item">
           <span> <i class="fa-solid fa-unlock"></i> </span>
-          <span class="mx-2 pointer" > <button (click)="btnClick()"> Change Password </button> </span>
+           <button class="mx-2 pointer" routerLink="/auth/change-password"> Change Password </button> 
         </div>
 
         <div class="item">
           <span> <i class="fa-solid fa-arrow-right-from-bracket"></i> </span>
-          <span class="mx-2 pointer"> <button (click)="logout()" >Logout</button> </span>
-        </div>
+          <button class="mx-2 pointer" (click)="logout()" >Logout</button> 
       </div>
     </div>
   </div>
+</div>
 </section>
+

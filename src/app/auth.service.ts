@@ -51,4 +51,8 @@ export class AuthService {
   onResetPassword(data: string) {
     return this._HttpClient.post('Users/Reset', data);
   }
+  onChangePassword(data: string) {
+    return this._HttpClient.put('Users/ChangePassword', data);
+  }
 }
+

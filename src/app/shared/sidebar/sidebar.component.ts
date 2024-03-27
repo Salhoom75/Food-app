@@ -77,10 +77,7 @@ export class SidebarComponent {
     localStorage.removeItem('role');
     this._Router.navigate(['/auth/login']);
   }
-  btnClick(){
+  btnClick() {
     this._Router.navigateByUrl('/auth/changePassword');
   }
-
-
-
 }

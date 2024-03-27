@@ -29,6 +29,6 @@ const routes: Routes = [
   ],
   exports:[
    CommonModule],
-  declarations:[AuthComponent,LoginComponent,ResetComponent,RequestResetPasswordComponent,RegisterComponent,VerifyComponent]
+  declarations:[AuthComponent,LoginComponent,ResetComponent,RequestResetPasswordComponent,RegisterComponent,VerifyComponent,ChangePasswordComponent]
 })
 export class AuthModule { }

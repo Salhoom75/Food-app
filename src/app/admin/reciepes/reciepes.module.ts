@@ -4,14 +4,11 @@ import { ReciepesComponent } from './reciepes.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddEditRecipeComponent } from './components/add-edit-recipe/add-edit-recipe.component';
-const routes:Routes=[
-{path:'', component:ReciepesComponent},
-{path:'add', component:AddEditRecipeComponent},
-{path:'edit/:id', component:AddEditRecipeComponent},
-
-
-
-]
+const routes: Routes = [
+  { path: '', component: ReciepesComponent },
+  { path: 'add', component: AddEditRecipeComponent },
+  { path: 'edit/:id', component: AddEditRecipeComponent },
+];
 
 @NgModule({
   imports: [
@@ -19,8 +16,7 @@ const routes:Routes=[
     RouterModule.forChild(routes),
     FormsModule,
     ReactiveFormsModule,
-
   ],
-  declarations: [ReciepesComponent]
+  declarations: [ReciepesComponent],
 })
-export class ReciepesModule { }
+export class ReciepesModule {}
